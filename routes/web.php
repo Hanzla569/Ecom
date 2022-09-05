@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Session;
+
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -13,14 +15,18 @@ use App\Http\Controllers\ProductController;
 // | contains the "web" middleware group. Now create something great!
 // |
 // */
-
-Route::get('/', function () {
-    return view('login');
+Route::get('/logout',function()
+{
+    Session::forget('user');
+    return redirect('/login');
 });
 
-
+Route::view("/login","login");
 Route::POST("/login",[UserController::class,'login']);
 Route::get("/",[ProductController::class,'index']);
+Route::get("detail/{id}",[ProductController::class,'detail']);
+Route::get("/search",[ProductController::class,'search']);
+Route::post("/addcart",[ProductController::class,'addtocart']);
 
 
 

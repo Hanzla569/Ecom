@@ -25,14 +25,39 @@
 
     <body>
         {{View::make('header')}}
-          @yield("content");
-          {{View::make('footer')}}
+        @yield("content");
+        {{View::make('footer')}}
     </body>
     <style>
-        .custom-login{
+        .custom-login {
             height: 500px;
             padding-top: 100px;
         }
-        </style>
+        img.slider-img{
+            height: 400px !important;
+        }
+        .custom-product{
+            height: 600px;
+        }
+        .slider-text{
+            background-color: #6ba2b980 !important;
+        }
+        .trending-img{
+            height:100px;
+        }
+        .trending-item{
+            float: left;
+            width: 20%;
+        }
+        .trending-block{
+            margin: 20px;
+        }
+        .detail-img{
+            height:200px;
+        }
+        .search-box{
+            width:500px !important;
+        }
+    </style>
 
 </html>
