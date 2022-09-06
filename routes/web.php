@@ -21,14 +21,22 @@ Route::get('/logout',function()
     return redirect('/login');
 });
 
+Route::view("/register","register");
 Route::view("/login","login");
 Route::POST("/login",[UserController::class,'login']);
+Route::POST("/register",[UserController::class,'register']);
+
 Route::get("/",[ProductController::class,'index']);
 Route::get("detail/{id}",[ProductController::class,'detail']);
 Route::get("/search",[ProductController::class,'search']);
 Route::post("/addcart",[ProductController::class,'addtocart']);
 Route::get("/cartlist",[ProductController::class,'cartlist']);
 Route::get("removecart/{id}",[ProductController::class,'removeCart']);
+Route::get("ordernow",[ProductController::class,'orderNow']);
+Route::POST("orderplace",[ProductController::class,'orderPlace']);
+Route::get("myorder",[ProductController::class,'myOrder']);
+
+
 
 
 
